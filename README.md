@@ -1,8 +1,8 @@
-# Video Streaming POC (Backend)
+# Video Streaming POC
 
-A learning project for **HLS video streaming** with Node.js, Express, and FFmpeg.
+A learning project for **HLS video streaming** with Node.js, Express, FFmpeg, and React.
 
-Upload a video → backend converts it into HLS chunks at **1080p**, **720p**, and **480p** → serve playlists and segments over HTTP.
+Upload a video → backend converts it into HLS chunks at **1080p**, **720p**, and **480p** → frontend plays them with quality switching.
 
 ## Prerequisites
 
@@ -17,18 +17,39 @@ ffmpeg -version
 
 ## Setup
 
+**Backend:**
+
 ```bash
 cd backend
 npm install
 ```
 
-## Run
+**Frontend:**
 
 ```bash
+cd frontend
+npm install
+```
+
+## Run
+
+**Terminal 1 — Backend:**
+
+```bash
+cd backend
 npm start
 ```
 
 Server runs at **http://localhost:8000**
+
+**Terminal 2 — Frontend:**
+
+```bash
+cd frontend
+npm run dev
+```
+
+App runs at **http://localhost:3000**
 
 ## How it works
 
@@ -108,6 +129,11 @@ backend/
   middleware/multer.js  # File upload handling
   utils/chunkVideo.js   # FFmpeg HLS chunking logic
   uploads/              # Processed videos (gitignored)
+
+frontend/
+  src/App.jsx           # Video player + quality switcher
+  src/main.jsx          # React entry point
+  vite.config.js        # Dev server (port 3000)
 ```
 
 ## Notes
@@ -118,7 +144,14 @@ backend/
 
 ## Tech stack
 
+**Backend**
 - **Express** — HTTP server
 - **Multer** — file uploads
 - **FFmpeg** — video transcoding + HLS segmentation
+
+**Frontend**
+- **React + Vite** — UI
+- **hls.js** — HLS playback in Chrome/Firefox
+
+**Streaming**
 - **HLS** — HTTP Live Streaming (`.m3u8` + `.ts` chunks)

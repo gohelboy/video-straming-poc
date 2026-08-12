@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Environment variables (secrets)
+.env
+.env.*
+!.env.example
+
+# Uploaded & processed videos (large files — never push these)
+backend/uploads/
+
+# Frontend production build
+frontend/dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Cache
+.cache/
+*.tsbuildinfo
+
+# Optional local tooling
+.cursor/

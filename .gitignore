@@ -9,8 +9,8 @@ node_modules/
 # Uploaded & processed videos (large files — never push these)
 backend/uploads/
 
-# Frontend production build
-frontend/dist/
+# Frontend (not part of this repo)
+frontend/
 
 # Logs
 logs/
